@@ -42,7 +42,7 @@ public class UserService implements UserDetailsService {
 		userRepo.save(user);
 		if(!StringUtils.isEmpty(user.getEmail())) {
 			String message = String.format("Hello, %s \n" + 
-					"Welcome to the App! Please, go to http://http://localhost:8080/activate/%s",
+					"Welcome to the App! Please, go to http://localhost:8080/activate/%s",
 			
 			user.getUsername(),
 			user.getActivationCode()
