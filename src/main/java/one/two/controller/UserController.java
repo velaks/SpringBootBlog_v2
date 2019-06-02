@@ -20,7 +20,7 @@ import one.two.repos.UserRepo;
 
 @Controller
 @RequestMapping("/user")
-//@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
 
 	@Autowired
