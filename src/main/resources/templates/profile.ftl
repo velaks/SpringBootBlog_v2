@@ -13,10 +13,10 @@ ${message?ifExists}
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Email</label>
 			<div class="col-sm-7">
-				<input type="email" name="email" class="form-control" placeholder="email" value="${email}"/>
+				<input type="email" name="email" class="form-control" placeholder="email" value="${email!''}"/>
 			</div>
 		</div>
 		<input type="hidden" name="_csrf" value="${_csrf.token}" />	
-		<button class="btn btn-primary" type="submit">Create<#else>Save</button>	
+		<button class="btn btn-primary" type="submit">Save</button>	
 </form>
 </@c.page>
