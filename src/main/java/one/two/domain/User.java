@@ -14,6 +14,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,9 +28,16 @@ public class User implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@NotBlank(message="You need to insert username")
 	private String username;
+	@NotBlank(message="You need to insert password")
 	private String password;
+	@Transient
+	@NotBlank(message="Password confirmation")
+	private String password2;
 	private boolean active;
+	@Email(message="Email is incorrect")
+	@NotBlank(message="You need to insert email")
 	private String email;
 	private String activationCode;
 	
@@ -125,6 +135,16 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return isActive();
 	}
+
+	public String getPassword2() {
+		return password2;
+	}
+
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
+	
+	
 	
 	
 

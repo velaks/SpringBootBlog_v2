@@ -7,6 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Message {
@@ -14,8 +17,11 @@ public class Message {
 	    @GeneratedValue(strategy=GenerationType.IDENTITY)
 	    private Long id;
 	 	
+	 	@NotBlank(message = "Insert text")
+	 	@Length(max=2048, message = "Message too long")
 	 	private String text;
 
+	 	@Length(max=255)
 	    private String tag;
 	    
 	    @ManyToOne(fetch = FetchType.EAGER)
