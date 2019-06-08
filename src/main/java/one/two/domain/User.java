@@ -32,9 +32,6 @@ public class User implements UserDetails {
 	private String username;
 	@NotBlank(message="You need to insert password")
 	private String password;
-	@Transient
-	@NotBlank(message="Password confirmation")
-	private String password2;
 	private boolean active;
 	@Email(message="Email is incorrect")
 	@NotBlank(message="You need to insert email")
@@ -135,16 +132,6 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return isActive();
 	}
-
-	public String getPassword2() {
-		return password2;
-	}
-
-	public void setPassword2(String password2) {
-		this.password2 = password2;
-	}
-	
-	
 	
 	
 
