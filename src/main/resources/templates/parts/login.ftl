@@ -29,7 +29,7 @@
 		<#if isRegisterForm>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Password</label>
-			<div class="col-sm-7">
+			<div class="col-sm-6">
 				<input type="password" name="password2" class="form-control ${(password2Error??)?string('is-invalid', '')}" placeholder="Retype Password"/>
 				<#if password2Error??>
                 <div class="invalid-feedback">
@@ -37,11 +37,12 @@
                 </div>
                 </#if>
 			</div>
+			</div>
 		<div class="form-group row">
 			<label class="col-sm-2 col-form-label">Email</label>
-			<div class="col-sm-7">
+			<div class="col-sm-6">
 				<input type="email" name="email" 
-				value="<#if email??>${email.email}</#if>"
+				value="<#if email??>${user.email}</#if>"
 				class="form-control ${(emailError??)?string('is-invalid', '')}" placeholder="email"/>
 				<#if emailError??>
                 <div class="invalid-feedback">
@@ -49,6 +50,14 @@
                 </div>
                 </#if>
 			</div>
+		</div>
+		<div class="col-sm-6">
+			<div class="g-recaptcha" data-sitekey="6LdD8KcUAAAAAOpHJ8TAYSh23Bx685EW9YMvRPlQ"></div>
+			<#if captchaError??>
+			    <div class="alert alert-danger" role="alert">
+			        ${captchaError}
+			    </div>
+			</#if>
 		</div>
 		</#if>
 		<input type="hidden" name="_csrf" value="${_csrf.token}" />

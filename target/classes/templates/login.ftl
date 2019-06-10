@@ -11,6 +11,5 @@
         ${message}
     </div>
 </#if>
-${message?ifExists}
 	<@l.login "/login" false/>
 </@c.page>
