@@ -23,7 +23,7 @@ import one.two.service.UserService;
 
 @Controller
 public class RegistrationController {
-	private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%$response";
+	private final static String CAPTCHA_URL = "https://www.google.com/recaptcha/api/siteverify?secret=%s&response=%s";
 	
 	@Autowired
 	private UserService userService;
